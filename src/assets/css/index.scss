@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@function count($value, $vw: $vw) {
+  @return ($value/$vw) vw;
+}
+@mixin app($value) {
+  width: count(100);
+}
+#app {
+  $vw: 7.5 !global;
+  @include app(7.5);
+}
+@media screen and (min-aspect-ratio: 60/100) {
+  $vw: 6.5 !global;
+  #app {
+    @include app(6.5);
+  }
+}
