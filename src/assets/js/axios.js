@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Vue from 'vue';
 //接口请求前缀
-axios.defaults.baseURL =
-  'https://press.h5no1.com/apg-insurance-answer-three/api';
+axios.defaults.baseURL = 'api';
 axios.defaults.timeout = 10000; //设置请求超时500毫秒
+
 //是否需要cookie
 axios.defaults.withCredentials = true;
 
@@ -24,14 +24,14 @@ axios.interceptors.response.use(
   function(response) {
     const { ok, msg } = response.data;
     if (!ok) {
-    const error = new Error(msg);
-    Sentry.withScope(scope => {
-      // 使用 api 的请求地址作为分类依据
-      const { url, baseURL } = response.config;
-      const fingerprint = url.replace(baseURL, '');
-      scope.setFingerprint(['{{ default }}', fingerprint]);
-      Sentry.captureException(error);
-    });
+      const error = new Error(msg);
+      Sentry.withScope(scope => {
+        // 使用 api 的请求地址作为分类依据
+        const { url, baseURL } = response.config;
+        const fingerprint = url.replace(baseURL, '');
+        scope.setFingerprint(['{{ default }}', fingerprint]);
+        Sentry.captureException(error);
+      });
     }
     // 对响应数据做点什么
     return response;
