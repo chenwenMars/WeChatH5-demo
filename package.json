@@ -1,5 +1,5 @@
 {
-  "name": "hailan",
+  "name": "hla-collect-card-h5",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -43,9 +43,6 @@
     ],
     "globals": {
       "fiboSDK": false,
-      "PALifeOpen": false,
-      "$webfont": false,
-      "PALifeWebSDK": false,
       "Sentry": false,
       "Wechat": false,
       "wx": false
