@@ -48,8 +48,7 @@
       "PALifeWebSDK": false,
       "Sentry": false,
       "Wechat": false,
-      "wx": false,
-      "PALifeOpenH5": false
+      "wx": false
     },
     "rules": {
       "no-console": 0
